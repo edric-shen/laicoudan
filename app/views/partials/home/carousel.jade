@@ -1,0 +1,24 @@
+- var slides = [{url: '/images/1.jpg', alt: 'First slide', index: 1},{url: '/images/2.jpg', alt: 'Second slide', index: 2},{url: '/images/3.jpg', alt: 'Third slide', index: 3}]
+<!-- Top Carousel for most like-->
+div(id="carousel-most-visited", class="carousel slide", data-ride="carousel")
+    <!-- Indicators -->
+    ol.carousel-indicators
+        for slide in slides
+            if slide.index == 1
+                li(data-target="#carousel-most-visited", data-slide-to=slide.index - 1, class="active")
+            else
+                li(data-target="#carousel-most-visited", data-slide-to=slide.index - 1)
+
+    <!-- Wrapper for slides -->
+    div.carousel-inner
+        for slide in slides
+            if slide.index == 1
+                div(class="item active"): img(src=slide.url, alt=slide.alt)
+            else
+                div.item: img(src=slide.url, alt=slide.alt)
+                         
+    <!-- Controls -->
+    a(class="left carousel-control", href="#carousel-most-visited", data-slide="prev")
+        span(class="glyphicon glyphicon-chevron-left")
+    a(class="right carousel-control", href="#carousel-most-visited", data-slide="next")
+        span(class="glyphicon glyphicon-chevron-right")
