@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+/* GET home page. */
+router.get('/online', function(req, res, next) {
+  res.render('index');
+});
+
+
 module.exports = router;
